@@ -5,8 +5,10 @@ namespace App\Entity;
 use App\Repository\RealisationRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use ApiPlatform\Metadata\ApiResource;
 
 #[ORM\Entity(repositoryClass: RealisationRepository::class)]
+#[ApiResource]
 class Realisation
 {
     #[ORM\Id]

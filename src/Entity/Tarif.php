@@ -5,8 +5,10 @@ namespace App\Entity;
 use App\Repository\TarifRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use ApiPlatform\Metadata\ApiResource;
 
 #[ORM\Entity(repositoryClass: TarifRepository::class)]
+#[ApiResource]
 class Tarif
 {
     #[ORM\Id]
