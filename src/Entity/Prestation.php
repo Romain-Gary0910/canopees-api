@@ -22,8 +22,8 @@ class Prestation
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $description = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $images = null;
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $image = null;
 
     public function getId(): ?int
     {
@@ -38,7 +38,6 @@ class Prestation
     public function setTitre(string $titre): static
     {
         $this->titre = $titre;
-
         return $this;
     }
 
@@ -50,19 +49,17 @@ class Prestation
     public function setDescription(?string $description): static
     {
         $this->description = $description;
-
         return $this;
     }
 
-    public function getImages(): ?string
+    public function getImage(): ?string
     {
-        return $this->images;
+        return $this->image;
     }
 
-    public function setImages(string $images): static
+    public function setImage(?string $image): static
     {
-        $this->images = $images;
-
+        $this->image = $image;
         return $this;
     }
 }
