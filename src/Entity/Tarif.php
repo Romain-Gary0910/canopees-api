@@ -25,6 +25,34 @@ class Tarif
     #[ORM\Column(length: 50, nullable: true)]
     private ?string $unite = null;
 
+    #[ORM\Column(length: 255)]
+private ?string $categorie = null;
+
+     #[ORM\Column(length: 255, nullable: true)]
+private ?string $image = null;
+
+public function getImage(): ?string
+{
+    return $this->image;
+}
+
+public function setImage(?string $image): static
+{
+    $this->image = $image;
+    return $this;
+}
+
+public function getCategorie(): ?string
+{
+    return $this->categorie;
+}
+
+public function setCategorie(string $categorie): static
+{
+    $this->categorie = $categorie;
+    return $this;
+}
+
     public function getId(): ?int
     {
         return $this->id;
