@@ -41,6 +41,8 @@ security:
       - { path: ^/api/tarif, roles: PUBLIC_ACCESS }
       - { path: ^/api/realisation, roles: PUBLIC_ACCESS }
       - { path: ^/api/presentations, roles: PUBLIC_ACCESS }
+      - { path: ^/api/messages, roles: PUBLIC_ACCESS, methods: [POST] }
+      - { path: ^/api/messages, roles: IS_AUTHENTICATED_FULLY, methods: [GET, PUT, PATCH, DELETE] }
       - { path: ^/api, roles: IS_AUTHENTICATED_FULLY }
       - { path: ^/admin, roles: ROLE_ADMIN }
       - { path: ^/profile, roles: ROLE_USER }
