@@ -8,7 +8,11 @@ use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Metadata\ApiResource;
 
 #[ORM\Entity(repositoryClass: PrestationRepository::class)]
-#[ApiResource]
+#[ApiResource(
+    formats: [
+        'json' => ['application/json', 'application/ld+json', 'application/merge-patch+json']
+    ]
+)]
 class Prestation
 {
     #[ORM\Id]
@@ -24,6 +28,12 @@ class Prestation
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $image = null;
+
+    #[ORM\Column(type: Types::JSON, nullable: true)]
+    private ?array $images = [];
+
+    #[ORM\Column(nullable: true)]
+    private ?int $position = null;
 
     public function getId(): ?int
     {
@@ -60,6 +70,28 @@ class Prestation
     public function setImage(?string $image): static
     {
         $this->image = $image;
+        return $this;
+    }
+
+    public function getImages(): ?array
+    {
+        return $this->images;
+    }
+
+    public function setImages(?array $images): static
+    {
+        $this->images = $images;
+        return $this;
+    }
+
+    public function getPosition(): ?int
+    {
+        return $this->position;
+    }
+
+    public function setPosition(?int $position): static
+    {
+        $this->position = $position;
         return $this;
     }
 }

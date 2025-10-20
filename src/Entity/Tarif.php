@@ -8,7 +8,11 @@ use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Metadata\ApiResource;
 
 #[ORM\Entity(repositoryClass: TarifRepository::class)]
-#[ApiResource]
+#[ApiResource(
+    formats: [
+        'json' => ['application/json', 'application/ld+json', 'application/merge-patch+json']
+    ]
+)]
 class Tarif
 {
     #[ORM\Id]
